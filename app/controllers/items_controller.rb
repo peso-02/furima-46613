@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(params[:id]) 詳細機能で実装
+    @item = Item.find(params[:id])
   end
 
   private
