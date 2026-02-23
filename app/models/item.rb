@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   # associations
   belongs_to :user
-  has_one :order
+  ## has_one :order 購入機能で実装
 
   has_one_attached :image
 
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_day_id, numericality: { other_than: 1, message: "Scheduled delivery can't be blank" }
+  validates :shipping_day_id, numericality: { other_than: 1, message: "can't be blank" }
 
   validates :price, presence: true,
                     numericality: {

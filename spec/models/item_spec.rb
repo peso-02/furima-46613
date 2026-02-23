@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
       it 'shipping_day_idが1だと保存できない' do
         @item.shipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping day Scheduled delivery can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
       it '300未満だと保存できない' do
         @item.price = 299
@@ -76,6 +76,11 @@ RSpec.describe Item, type: :model do
         @item.price = 300.5
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be an integer')
+      end
+      it 'userが紐づいていない場合保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors[:user]).to include('must exist')
       end
     end
   end
