@@ -9,6 +9,8 @@ class OrderAddress
     validates :city
     validates :house_number
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :phone_number, presence: true,
