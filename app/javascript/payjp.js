@@ -15,7 +15,7 @@ const payjpCheckout = () => {
     e.preventDefault();
     payjp.createToken(numberElement).then((response) => {
       if (response.error) {
-        // トークン生成失敗
+        form.submit();
       } else {
         const token = response.id;
         const tokenInput = document.createElement('input');
