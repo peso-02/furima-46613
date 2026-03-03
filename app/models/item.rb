@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   # associations
   belongs_to :user
-  has_one :order
+  ## has_one :order 購入機能で実装
 
   has_one_attached :image
 
